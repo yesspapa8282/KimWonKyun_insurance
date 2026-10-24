@@ -31,12 +31,12 @@ pnpm lint
 
 ## 2. 사진 바꾸는 법
 
-- 현재 사진은 의뢰인 제공 원본(1200×630)입니다. 더 큰 원본(가로 2400px 이상)을 받으면 교체를 권장합니다.
+- 현재 사진은 의뢰인 제공 세로형 사진(1083×1452)입니다. 휴대폰에서는 세로 비율 그대로 가운데에 두고 좌우·위아래를 배경으로 서서히 이어 붙이며, PC에서는 4:5 카드로 보여 줍니다.
 - 같은 이름(`public/images/profile.webp`)으로 덮어쓰면 됩니다. 가로 2400px 이상 원본을 WebP(품질 80 내외, 약 200KB 이하)로 변환해 넣는 것을 권장합니다.
   ```bash
   npx sharp-cli -i 원본.jpg -o public/images/profile.webp resize 2400 -- webp --quality 80
   ```
-- 얼굴이 사진 가로 중앙·위쪽에 있는 가로형 사진을 기준으로 잘림 위치(`object-[50%_0%]`)가 맞춰져 있습니다.
+- 비율이 다른 사진으로 바꾸면 `src/components/sections/hero.tsx`의 `aspect-[1083/1452]`를 새 사진의 가로/세로 크기로 바꿔 주세요.
 - 사진을 바꾼 뒤 링크 미리보기 이미지도 다시 만드세요: `pnpm og` → `public/og.png`(1200×630), 파비콘(`src/app/icon.png`, `apple-icon.png`) 재생성. 미리보기 문구는 `scripts/make-og.mjs` 상단 `TEXT`에서 수정합니다.
 
 ## 3. 배포 방법

@@ -26,21 +26,22 @@ export function Hero() {
       <div className="mx-auto flex min-h-[calc(100svh-var(--header-h)-env(safe-area-inset-top))] w-full max-w-[1120px] flex-col lg:grid lg:min-h-[min(calc(100svh-var(--header-h)),820px)] lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:items-center lg:gap-14 lg:px-8 lg:py-12">
         {/* 프로필 사진 */}
         <div className="relative h-[clamp(240px,38svh,380px)] w-full shrink-0 lg:h-auto lg:aspect-[4/5] lg:overflow-hidden lg:rounded-[28px]">
-          <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,black_70%,transparent)] lg:[mask-image:linear-gradient(to_bottom,black_80%,transparent)]">
+          {/* 휴대폰: 세로 사진을 가운데에 두고 좌우·아래를 배경으로 서서히 이어 붙임 / PC: 4:5 카드 전체 */}
+          <div className="absolute inset-y-0 left-1/2 aspect-[1083/1452] -translate-x-1/2 [mask-composite:intersect] [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_68%,transparent),linear-gradient(to_right,transparent,black_16%,black_84%,transparent)] lg:inset-0 lg:aspect-auto lg:translate-x-0 lg:[mask-image:linear-gradient(to_bottom,black_80%,transparent)]">
             <Image
               src={profile}
               alt={person.photoAlt}
               fill
               preload
               placeholder="blur"
-              sizes="(min-width: 1024px) 440px, 100vw"
+              sizes="(min-width: 1024px) 440px, 300px"
               quality={80}
-              className="object-cover object-[50%_0%]"
+              className="object-cover object-[50%_15%]"
             />
             {/* 회색 배경을 보라로 은은하게 물들임 — 얼굴 주변은 제외 */}
             <div
               aria-hidden="true"
-              className="absolute inset-0 bg-violet-700/25 [mask-image:radial-gradient(ellipse_34%_62%_at_50%_34%,transparent_55%,black_100%)] lg:[mask-image:radial-gradient(ellipse_52%_48%_at_50%_34%,transparent_55%,black_100%)]"
+              className="absolute inset-0 bg-violet-700/25 [mask-image:radial-gradient(ellipse_48%_42%_at_50%_42%,transparent_60%,black_100%)]"
             />
           </div>
         </div>
