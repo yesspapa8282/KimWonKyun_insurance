@@ -1,29 +1,10 @@
-import {
-  Briefcase,
-  FileCheck2,
-  HeartPulse,
-  Landmark,
-  PiggyBank,
-  SearchCheck,
-  Users,
-  type LucideIcon,
-} from "lucide-react";
 
+import { SERVICE_ICONS } from "@/components/common/service-icons";
 import { Reveal } from "@/components/common/reveal";
 import { SectionShell } from "@/components/common/section-shell";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
-import { site, type IconKey } from "@/config/site";
+import { site } from "@/config/site";
 import { cn } from "@/lib/utils";
-
-const ICONS: Record<IconKey, LucideIcon> = {
-  search: SearchCheck,
-  heart: HeartPulse,
-  family: Users,
-  file: FileCheck2,
-  piggy: PiggyBank,
-  landmark: Landmark,
-  briefcase: Briefcase,
-};
 
 export function Services() {
   const { services } = site;
@@ -40,7 +21,7 @@ export function Services() {
 
       <ul className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
         {featured.map((item) => {
-          const Icon = ICONS[item.icon];
+          const Icon = SERVICE_ICONS[item.icon];
           return (
             <Reveal as="li" key={item.title} className="col-span-2 lg:col-span-3">
               <Card className="flex h-full items-start gap-4 border-violet-200 bg-grad-soft p-5 sm:p-6">
@@ -56,7 +37,7 @@ export function Services() {
           );
         })}
         {rest.map((item, i) => {
-          const Icon = ICONS[item.icon];
+          const Icon = SERVICE_ICONS[item.icon];
           return (
             <Reveal as="li" key={item.title} delay={(i % 2) * 0.06}>
               <Card className={cn("flex h-full flex-col p-4 sm:p-5")}>

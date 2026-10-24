@@ -2,6 +2,7 @@ import { Clock, MapPin } from "lucide-react";
 
 import { ContactButtons } from "@/components/common/contact-buttons";
 import { Reveal } from "@/components/common/reveal";
+import { TunnelBackground } from "@/components/common/tunnel-background";
 import { ShareButton } from "@/components/common/share-button";
 import { site } from "@/config/site";
 
@@ -17,6 +18,7 @@ export function Contact() {
         <div className="absolute -left-20 -top-16 size-72 rounded-full bg-fuchsia-500/25 blur-3xl" />
         <div className="absolute -bottom-24 -right-16 size-80 rounded-full bg-violet-400/20 blur-3xl" />
       </div>
+      <TunnelBackground placement="contact" className="-z-10" />
       <div className="mx-auto w-full max-w-[640px] px-5 py-16 sm:px-8 lg:py-24">
         <Reveal>
           <h2 id="contact-title" className="text-[26px] font-bold leading-snug tracking-tight lg:text-[32px]">

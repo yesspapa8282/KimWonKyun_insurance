@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 
 import { ContactButtons } from "@/components/common/contact-buttons";
+import { TunnelBackground } from "@/components/common/tunnel-background";
 import { site } from "@/config/site";
 import profile from "../../../public/images/profile.webp";
 
@@ -20,6 +21,7 @@ export function Hero() {
         <div className="absolute -right-24 top-1/3 size-72 rounded-full bg-fuchsia-500/30 blur-3xl" />
         <div className="absolute -left-28 bottom-0 size-80 rounded-full bg-violet-500/25 blur-3xl" />
       </div>
+      <TunnelBackground placement="hero" className="-z-10" />
 
       <div className="mx-auto flex min-h-[calc(100svh-var(--header-h)-env(safe-area-inset-top))] w-full max-w-[1120px] flex-col lg:grid lg:min-h-[min(calc(100svh-var(--header-h)),820px)] lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:items-center lg:gap-14 lg:px-8 lg:py-12">
         {/* 프로필 사진 */}
@@ -58,10 +60,9 @@ export function Hero() {
             )}
             <ContactButtons layout="hero" id={HERO_CTA_ID} className="mt-6 lg:mt-8 lg:max-w-[420px]" />
           </div>
-          <ChevronDown
-            aria-hidden="true"
-            className="mx-auto mt-auto size-7 animate-bounce pt-6 text-white/60 motion-reduce:animate-none lg:hidden"
-          />
+          <div aria-hidden="true" className="mt-auto flex justify-center pt-6 lg:hidden">
+            <ChevronDown className="size-7 animate-bounce text-white/70 motion-reduce:animate-none" />
+          </div>
         </div>
       </div>
 

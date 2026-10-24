@@ -92,6 +92,18 @@ export type SiteConfig = {
     body: string;
     home: string;
   };
+  /** 첫 화면·문의 섹션 배경의 3D 터널 효과 */
+  motion: {
+    enabled: boolean;
+    hero: boolean;
+    contact: boolean;
+    /** 터널 한 바퀴에 걸리는 시간(초). 클수록 느림 */
+    loopSeconds: number;
+    /** 효과 전체 불투명도 (0~1) */
+    opacity: number;
+    /** 카드에 사진을 쓰려면 public/images/tunnel/ 에 넣고 경로를 적습니다. 비우면 상담 분야 아이콘 카드 */
+    photos: string[];
+  };
   seo: {
     title: string;
     description: string;
@@ -223,6 +235,14 @@ export const site: SiteConfig = {
     title: "찾으시는 페이지가 없습니다",
     body: "주소를 다시 확인해 주세요. 궁금한 점은 카카오톡으로 편하게 물어보셔도 됩니다.",
     home: "홈으로 돌아가기",
+  },
+  motion: {
+    enabled: true,
+    hero: true,
+    contact: true,
+    loopSeconds: 26,
+    opacity: 0.45,
+    photos: [],
   },
   seo: {
     title: "김원균 교육실장 | 보장분석·보험 리모델링",

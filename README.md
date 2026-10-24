@@ -31,7 +31,7 @@ pnpm lint
 
 ## 2. 사진 바꾸는 법
 
-- **현재 `public/images/profile.webp`는 임시 실루엣 이미지입니다.** 실제 사진으로 반드시 교체하세요.
+- 현재 사진은 의뢰인 제공 원본(1200×630)입니다. 더 큰 원본(가로 2400px 이상)을 받으면 교체를 권장합니다.
 - 같은 이름(`public/images/profile.webp`)으로 덮어쓰면 됩니다. 가로 2400px 이상 원본을 WebP(품질 80 내외, 약 200KB 이하)로 변환해 넣는 것을 권장합니다.
   ```bash
   npx sharp-cli -i 원본.jpg -o public/images/profile.webp resize 2400 -- webp --quality 80
@@ -67,13 +67,17 @@ src/
     ui/                shadcn (button · badge · card)
 public/
   fonts/               Pretendard Variable (KS X 1001 한글 2,350자 + 영문 서브셋, 약 450KB)
-  images/profile.webp  프로필 사진 (현재 임시)
+  images/profile.webp  프로필 사진
   og.png               링크 미리보기 이미지
-scripts/               og.png·아이콘·임시 사진 생성 스크립트
+scripts/               og.png·아이콘 생성 스크립트
 ```
 
 ## 참고 / 남은 일
 
-- **FR-19 배경 물결 효과**: 원본 `HeroBackground` 코드를 아직 받지 못해 적용하지 않았습니다. 코드를 주시면 `src/components/common/hero-background.tsx`로 추가합니다.
+- **배경 효과(FR-19 대체)**: 21st.dev `PerspectiveTunnelHero`를 고쳐 `src/components/ui/perspective-tunnel-hero.tsx`에 두었습니다. 첫 화면·문의 섹션 배경에서 상담 분야 아이콘 카드가 천천히 다가오고, 마우스를 움직이면 살짝 기울어집니다.
+  - 설정: `site.ts`의 `motion` (`enabled`로 전체 끄기, `hero`/`contact`로 위치별 끄기, `loopSeconds` 속도, `opacity` 진하기)
+  - 카드에 사진을 쓰려면 `public/images/tunnel/`에 이미지를 넣고 `motion.photos`에 `"/images/tunnel/1.webp"` 식으로 적습니다(외부 주소 사용 금지 원칙).
+  - 원본과 달리 휠 스크롤을 가로채지 않고(페이지 스크롤 유지), 화면 밖·동작 줄이기 설정에서는 멈추며, 첫 화면 JS에 포함되지 않도록 늦게 불러옵니다.
+  - `framer-motion`은 설치하지 않았습니다. 같은 라이브러리의 새 이름인 `motion`이 이미 설치되어 있어 중복 설치를 피했습니다.
 - 폰트는 용량을 줄이려고 자주 쓰는 한글 2,350자만 담았습니다. 드문 글자(예: 똠, 햏)는 기기 기본 글꼴로 보입니다.
 - 클라이언트 컴포넌트: `Reveal`, `StickyContactBar`, `ShareButton` 외에 상단 메뉴(`SiteHeader`)와 PC 번호 복사(`PhoneLink`)가 동작을 위해 클라이언트로 되어 있습니다.
