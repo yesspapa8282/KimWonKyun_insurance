@@ -46,6 +46,11 @@ pnpm lint
 3. 환경변수 `NEXT_PUBLIC_SITE_URL`에 배포 주소(예: `https://kimwonkyun.vercel.app`)를 넣습니다. 링크 미리보기 이미지 주소가 이 값으로 만들어집니다. (`.env.example` 참고, `.env` 파일은 저장소에 올리지 않습니다.)
 4. 이번 범위는 `preview` 브랜치의 **확인용 주소**까지입니다. 정식 공개·도메인 연결은 회사 심의 후 진행합니다.
 
+**현재 배포 상태**
+- Vercel 프로젝트: `kimwonkyun-insurance` (팀 yesspapa), GitHub `preview` 브랜치에 푸시하면 자동 배포
+- 확인용 주소: https://kimwonkyun-insurance.vercel.app (링크를 아는 사람만 접근, 검색 노출 차단)
+- 배포 보호: Standard Protection — 위 주소는 공개, 커밋별 미리보기 주소는 Vercel 로그인 필요
+
 ## 4. 카카오톡 링크 미리보기가 안 바뀔 때
 
 카카오톡은 링크 카드를 캐시합니다. 문구나 `og.png`를 바꿨는데 예전 카드가 나오면:
