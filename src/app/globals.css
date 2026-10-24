@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+/* ── 디자인 토큰 ───────────────────────────── */
+:root {
+  --bg-deep: #1b0f3a;
+  --bg-soft: #f6f3ff;
+  --ink: #1e1b2e;
+  --ink-sub: #4b4766;
+  --primary: #5b21b6;
+  --primary-strong: #4c1d95;
+  --accent: #db2777;
+  --accent-glow: #8fb0ff;
+  --line: #e4dcfb;
+  --kakao: #fee500;
+  --kakao-ink: #191600;
+  --kakao-pressed: #e6cf00;
+  --grad-hero: linear-gradient(
+    165deg,
+    #1b0f3a 0%,
+    #2e1765 38%,
+    #5b21b6 72%,
+    #9d174d 100%
+  );
+  --grad-button: linear-gradient(135deg, #6d28d9 0%, #be185d 100%);
+  --grad-soft: linear-gradient(135deg, #f3edff 0%, #fde8f3 100%);
+  --header-h: 52px;
+  --bar-h: 64px;
+}
+
+@theme inline {
+  --color-deep: var(--bg-deep);
+  --color-soft: var(--bg-soft);
+  --color-ink: var(--ink);
+  --color-ink-sub: var(--ink-sub);
+  --color-primary: var(--primary);
+  --color-primary-strong: var(--primary-strong);
+  --color-accent: var(--accent);
+  --color-line: var(--line);
+  --color-kakao: var(--kakao);
+  --color-kakao-ink: var(--kakao-ink);
+  --color-kakao-pressed: var(--kakao-pressed);
+  --font-sans: var(--font-pretendard), -apple-system, BlinkMacSystemFont,
+    "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  --breakpoint-xs: 23.5rem;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: auto;
+  }
+  body {
+    background: var(--bg-soft);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.65;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible {
+    outline: 3px solid var(--accent-glow);
+    outline-offset: 2px;
+  }
+}
+
+@utility bg-grad-hero {
+  background: var(--grad-hero);
+}
+@utility bg-grad-button {
+  background: var(--grad-button);
+}
+@utility bg-grad-soft {
+  background: var(--grad-soft);
+}
+@utility scroll-target {
+  scroll-margin-top: calc(var(--header-h) + env(safe-area-inset-top) + 12px);
+}
+@utility pt-header {
+  padding-top: calc(var(--header-h) + env(safe-area-inset-top));
+}
+@utility pb-bar {
+  padding-bottom: calc(var(--bar-h) + env(safe-area-inset-bottom) + 24px);
+}
